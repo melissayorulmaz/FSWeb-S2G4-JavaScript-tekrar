@@ -65,8 +65,8 @@ function CemberinCevresi(yariCapi) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinAlani(yariCapi , piSayisi) {
+return pi * Math.sqrt(15)
 }
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -100,27 +100,68 @@ let ucetambolunenler,
 
 // 3a çözümü
 
-/* kodlar buraya */
+let enKucuk = sayilar[0];
+for(let i=1; i<sayilar.length; i++){
+    if(sayilar[i] < enKucuk){
+        enKucuk = sayilar[i];   
+    }
+}
+console.log(enKucuk);
+
+let enBuyuk = sayilar[0]; 
+    for (let i = 1; i < sayilar.length; i++) {
+      if (sayilar[i] > enBuyuk){ 
+        enBuyuk = sayilar[i]; 
+    } 
+} 
+console.log(enBuyuk); 
 
 // 3b çözümü:
-
-/* kodlar buraya */
+let uceTamBolunenler = [];
+sayilar.forEach(function(sayi) {
+  if (sayi % 3 === 0) {
+    uceTamBolunenler.push(sayi);
+  }
+});
+console.log(uceTamBolunenler);
 
 // 3c çözümü:
+const uceBolunenlerListeToplami = uceTamBolunenler.reduce((toplam, sayi) => toplam + sayi, 0);
+console.log(uceBolunenlerListeToplami);
 
-/* kodlar buraya */
-
-// 3d çözümü
-
-/* kodlar buraya */
+// 3d çözümü:
+const sonuc = sayilar.filter(besyuzdenKucukSayilar);
+function besyuzdenKucukSayilar(sayilar) {
+  return sayilar <= 500;
+}
+console.log(sonuc);
 
 // 3e çözümü
-
-/* kodlar buraya */
+sonuc.sort();
+console.log(sonuc);
 
 // 3f çözümü
 
-/* kodlar buraya */
+let tekrarEdenSayilar = [];
+
+let tekrarlar = {};
+sayilar.forEach(function(sayi) {
+  if (tekrarlar[sayi]) {
+    tekrarlar[sayi]++;
+  } else {
+    tekrarlar[sayi] = 1;
+  }
+});
+
+for (let sayi in tekrarlar) {
+  if (tekrarlar[sayi] > 1) {
+    let tekrarSayisi = tekrarlar[sayi];
+    let string = `${sayi} sayısı ${tekrarSayisi} kere tekrar edilmiştir`;
+    tekrarEdenSayilar.push(string);
+  }
+}
+
+console.log(tekrarEdenSayilar);
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
